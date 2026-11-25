@@ -68,7 +68,7 @@ final class Shahaneh_Panel {
             <form method="post" action="options.php">
                 <?php settings_fields('shahaneh_panel_settings'); ?>
                 <table class="form-table">
-                    <tr><th scope="row">فعال‌سازی مسیر پنل</th><td><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION_ENABLED); ?>" value="1" <?php checked(get_option(self::OPTION_ENABLED, '1'), '1'); ?>> فعال باشد</label></td></tr>
+                    <tr><th scope="row">فعال‌سازی مسیر پنل</th><td><input type="hidden" name="<?php echo esc_attr(self::OPTION_ENABLED); ?>" value="0"><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION_ENABLED); ?>" value="1" <?php checked(get_option(self::OPTION_ENABLED, '1'), '1'); ?>> فعال باشد</label></td></tr>
                     <tr><th scope="row">ایمیل‌های مجاز</th><td><textarea class="large-text" rows="4" name="<?php echo esc_attr(self::OPTION_EMAILS); ?>"><?php echo esc_textarea((string)get_option(self::OPTION_EMAILS, '')); ?></textarea><p class="description">ایمیل مدیران مجاز؛ هر ایمیل در یک خط. خالی بودن فهرست یعنی فقط کاربران دارای manage_options مجازند.</p></td></tr>
                     <tr><th scope="row">پوسته پیش‌فرض</th><td><select name="<?php echo esc_attr(self::OPTION_THEME); ?>"><option value="light" <?php selected(get_option(self::OPTION_THEME, 'light'), 'light'); ?>>روشن</option><option value="dark" <?php selected(get_option(self::OPTION_THEME, 'light'), 'dark'); ?>>تیره</option></select></td></tr>
                 </table>
