@@ -14,6 +14,7 @@ define('SHAHANEH_PANEL_FILE', __FILE__);
 define('SHAHANEH_PANEL_DIR', plugin_dir_path(__FILE__));
 define('SHAHANEH_PANEL_URL', plugin_dir_url(__FILE__));
 require_once SHAHANEH_PANEL_DIR . 'includes/class-shahaneh-panel.php';
+require_once SHAHANEH_PANEL_DIR . 'includes/class-shahaneh-dashboard.php';
 register_activation_hook(__FILE__, ['Shahaneh_Panel', 'activate']);
 register_deactivation_hook(__FILE__, ['Shahaneh_Panel', 'deactivate']);
 add_action('plugins_loaded', static function () {
