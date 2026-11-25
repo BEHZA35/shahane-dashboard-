@@ -230,3 +230,87 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
 .shp-chart-card,.shp-card{box-shadow:0 13px 28px rgba(12,72,80,.1),inset 0 2px 0 #fff!important}
 .shp-best-item:hover{transform:translateY(-5px) scale(1.012)!important}
 @media(prefers-reduced-motion:reduce){.shp-side nav a,.shp-side nav span,.shp-metric,.shp-best-item{transition:none!important}}
+
+
+/* Sidebar detail pass: icon-led navigation inspired by the supplied reference */
+.shp-side{
+  width:100%; min-width:0; padding:22px 14px 18px;
+  border-radius:0 0 0 34px;
+  background:linear-gradient(160deg,#07545a 0%,#063f4a 48%,#082d3c 100%)!important;
+  box-shadow:-14px 0 38px rgba(4,48,58,.18);
+}
+.shp-brand{justify-content:flex-start;padding:4px 7px 20px;margin-bottom:2px}
+.shp-brand>span{
+  width:52px;height:52px;border-radius:18px;
+  background:linear-gradient(145deg,#ffe8a7,#bd8c36 58%,#8e6425);
+  color:#fff8df;font-size:27px;
+  box-shadow:0 9px 18px rgba(0,0,0,.24),inset 0 2px 3px #fff9c9;
+}
+.shp-brand b{color:#fff;font-size:21px}
+.shp-brand small{color:#bce9e3!important;letter-spacing:1.5px}
+.shp-side>p{color:#b9e2dc!important;font-size:11px;margin:0 8px 4px}
+.shp-side nav{
+  display:flex;flex-direction:column;gap:7px;
+  overflow:visible;padding:2px 0 10px;
+}
+.shp-side nav>a,.shp-side nav>span{
+  position:relative;display:flex;align-items:center;gap:12px;
+  width:100%;min-height:43px;padding:8px 11px;
+  border-radius:15px;border:1px solid rgba(208,250,244,.12);
+  color:#effffb!important;background:rgba(255,255,255,.055);
+  text-decoration:none;font-family:"IRANYekanX","Vazirmatn",Tahoma,sans-serif;
+  font-size:12px;font-weight:700;line-height:1.7;
+  text-shadow:0 1px 2px rgba(0,0,0,.22);
+  transition:background .22s ease,color .22s ease,transform .22s ease,box-shadow .22s ease;
+}
+.shp-side nav>a:before,.shp-side nav>span:before{display:none!important;content:none!important}
+.shp-side nav>a>i,.shp-side nav>span>i{
+  display:inline-grid!important;place-items:center;flex:0 0 30px;
+  width:30px;height:30px;margin:0;border-radius:10px;
+  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.07))!important;
+  border:1px solid rgba(255,255,255,.12);
+  color:#9ef4e9!important;font-style:normal;font-size:16px;line-height:1;
+  box-shadow:inset 0 1px rgba(255,255,255,.24),0 3px 8px rgba(0,0,0,.12);
+}
+.shp-side nav>a>span,.shp-side nav>span>span{
+  display:block!important;flex:1;min-width:0;
+  color:inherit!important;background:transparent!important;
+  border:0!important;padding:0!important;margin:0!important;
+  font-size:12px!important;font-weight:700!important;
+  line-height:1.7!important;box-shadow:none!important;text-shadow:inherit!important;
+}
+.shp-side nav>a:hover,.shp-side nav>span:hover{
+  color:#fff!important;
+  background:linear-gradient(105deg,#0a8f91,#08707c)!important;
+  border-color:rgba(111,244,229,.65)!important;
+  box-shadow:0 8px 18px rgba(0,20,28,.28),inset 0 1px rgba(255,255,255,.25)!important;
+  transform:translateX(-4px);
+}
+.shp-side nav>a:hover>i,.shp-side nav>span:hover>i{
+  color:#fff!important;background:linear-gradient(145deg,#18bcb5,#087a84)!important;
+  border-color:rgba(255,255,255,.35);
+}
+.shp-side nav>a.active,.shp-side nav>a.active:hover{
+  color:#173e3c!important;
+  background:linear-gradient(145deg,#fff2c5 0%,#e8c477 52%,#c18e39 100%)!important;
+  border:1px solid #fff4d0!important;
+  box-shadow:0 8px 20px rgba(190,145,55,.34),inset 0 2px 2px rgba(255,255,255,.9)!important;
+  transform:translateY(-1px);
+}
+.shp-side nav>a.active>i{
+  color:#fff!important;background:linear-gradient(145deg,#10a5a1,#08646d)!important;
+}
+.shp-side nav>a.active>span{color:#173e3c!important}
+.shp-side nav>a:focus-visible,.shp-side nav>span:focus-visible{
+  outline:3px solid #ffd36d;outline-offset:2px;
+}
+.shp-side-foot{color:#b9d9d4!important;padding:14px 8px 5px}
+@media(min-width:801px){
+  .shp-side{height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#348c86 transparent}
+}
+@media(max-width:800px){
+  .shp-side{border-radius:0 0 24px 24px;padding:14px 14px 10px}
+  .shp-side nav{flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:7px}
+  .shp-side nav>a,.shp-side nav>span{width:auto;min-width:max-content;min-height:39px}
+  .shp-side nav>a>span,.shp-side nav>span>span{white-space:nowrap}
+}
