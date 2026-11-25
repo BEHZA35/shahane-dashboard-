@@ -28,19 +28,26 @@ final class Shahaneh_Dashboard {
         $completed = function_exists('wc_orders_count') ? (int) wc_orders_count('completed') : 0;
         $product_counts = wp_count_posts('product');
         $product_total = $product_counts ? (int) $product_counts->publish : 0;
+        $today_order_count = count($today_orders);
+        $new_customers = self::new_customers_this_month();
         $low_stock = self::low_stock_products();
 
         echo '<div class="shp-section-head"><div><span class="shp-eyebrow">گزارش لحظه‌ای</span><h2>نمای کلی فروشگاه</h2><p>اطلاعات مستقیماً از ووکامرس خوانده می‌شود.</p></div><span class="shp-live"><i></i> اتصال فعال ووکامرس</span></div>';
-        echo '<div class="shp-metrics">';
-        self::metric('فروش امروز', self::money($today_revenue), 'مجموع سفارش‌های درحال انجام و تکمیل‌شده', 'تومان', 'gold');
-        self::metric('فروش این ماه', self::money($month_revenue), 'از ابتدای ماه جاری', 'روند', 'teal');
-        self::metric('سفارش‌های در انتظار', number_format_i18n($pending), 'نیازمند بررسی مدیر', 'سفارش', 'orange');
-        self::metric('سفارش‌های درحال انجام', number_format_i18n($processing), 'در حال پردازش', 'ارسال', 'blue');
-        self::metric('کل محصولات منتشرشده', number_format_i18n($product_total), 'محصولات قابل مشاهده در فروشگاه', 'محصول', 'purple');
-        self::metric('سفارش‌های تکمیل‌شده', number_format_i18n($completed), 'وضعیت تکمیل‌شده', 'تکمیل', 'green');
+        echo '<div class="shp-metrics shp-metrics-primary">';
+        self::metric('فروش امروز', self::money($today_revenue), 'مجموع فروش سفارش‌های امروز', '↗', 'teal');
+        self::metric('سفارش‌های امروز', number_format_i18n($today_order_count), 'سفارش‌های ثبت‌شده امروز', '🛒', 'purple');
+        self::metric('مشتریان جدید این ماه', number_format_i18n($new_customers), 'بر اساس حساب‌های مشتری ثبت‌شده', '♙', 'orange');
+        self::metric('محصولات فعال', number_format_i18n($product_total), 'محصولات منتشرشده فروشگاه', '▣', 'green');
+        echo '</div>';
+        echo '<div class="shp-metrics shp-metrics-secondary">';
+        self::metric('فروش این ماه', self::money($month_revenue), 'از ابتدای ماه جاری', 'ماه', 'gold');
+        self::metric('سفارش‌های در انتظار', number_format_i18n($pending), 'نیازمند بررسی مدیر', 'در صف', 'orange');
+        self::metric('در حال پردازش', number_format_i18n($processing), 'سفارش‌های در حال آماده‌سازی', 'ارسال', 'blue');
+        self::metric('تکمیل‌شده', number_format_i18n($completed), 'سفارش‌های تکمیل‌شده', '✓', 'green');
         echo '</div>';
 
         self::weekly_chart();
+        self::best_sellers();
         echo '<div class="shp-dashboard-columns"><section class="shp-card shp-table-card"><div class="shp-card-head"><div><span class="shp-eyebrow">آخرین فعالیت‌ها</span><h3>آخرین سفارش‌ها</h3><p>۸ سفارش اخیر ثبت‌شده</p></div><span class="shp-subtle">اطلاعات زنده</span></div>';
         if (empty($recent_orders)) {
             echo '<div class="shp-empty">هنوز سفارشی در فروشگاه ثبت نشده است.</div>';
@@ -83,13 +90,39 @@ final class Shahaneh_Dashboard {
             $key = $order->get_date_created()->date('Y-m-d');
             if (isset($days[$key])) { $days[$key]['total'] += (float) $order->get_total(); }
         }
-        $max = max(array_map(static fn($day) => $day['total'], $days));
-        echo '<section class="shp-card shp-chart-card"><div class="shp-card-head"><div><span class="shp-eyebrow">عملکرد فروش</span><h3>روند فروش هفت روز اخیر</h3><p>بر اساس سفارش‌های درحال انجام و تکمیل‌شده</p></div><span class="shp-chart-tag">۷ روز گذشته</span></div><div class="shp-chart">';
-        foreach ($days as $day) {
-            $height = $max > 0 ? max(5, (int) round(($day['total'] / $max) * 100)) : 5;
-            echo '<div class="shp-chart-day"><span class="shp-chart-value">' . esc_html(wp_strip_all_tags(wc_price($day['total']))) . '</span><div class="shp-chart-track"><i style="height:' . esc_attr((string) $height) . '%"></i></div><small>' . esc_html($day['label']) . '</small></div>';
+        $values = array_values($days);
+        $max = max(array_map(static fn($day) => $day['total'], $values));
+        $points = [];
+        foreach ($values as $index => $day) {
+            $x = 30 + ($index * 140);
+            $y = $max > 0 ? 150 - (120 * $day['total'] / $max) : 130;
+            $points[] = $x . ',' . round($y, 1);
         }
-        echo '</div></section>';
+        echo '<section class="shp-card shp-chart-card"><div class="shp-card-head"><div><span class="shp-eyebrow">عملکرد فروش</span><h3>نمودار فروش ۷ روز گذشته</h3><p>روند مبلغ سفارش‌های تکمیل‌شده و در حال پردازش</p></div><span class="shp-chart-tag">۷ روز گذشته</span></div><div class="shp-line-chart"><svg viewBox="0 0 900 190" role="img" aria-label="نمودار فروش هفت روز اخیر" preserveAspectRatio="none"><defs><linearGradient id="shpLineFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#10aaa8" stop-opacity=".28"/><stop offset="100%" stop-color="#10aaa8" stop-opacity="0"/></linearGradient></defs><path class="shp-chart-area" d="M ' . implode(' L ', $points) . ' L 870,180 L 30,180 Z"/><polyline class="shp-chart-line" points="' . esc_attr(implode(' ', $points)) . '"/>';
+        foreach ($points as $point) { [$x, $y] = array_map('floatval', explode(',', $point)); echo '<circle class="shp-chart-point" cx="' . esc_attr((string) $x) . '" cy="' . esc_attr((string) $y) . '" r="6"/>'; }
+        echo '</svg><div class="shp-line-labels">';
+        foreach ($values as $day) { echo '<span>' . esc_html($day['label']) . '</span>'; }
+        echo '</div></div></section>';
+    }
+
+    private static function new_customers_this_month(): int {
+        $users = get_users(['role' => 'customer', 'date_query' => [['after' => current_datetime()->format('Y-m-01 00:00:00'), 'inclusive' => true]], 'fields' => 'ids', 'number' => 500]);
+        return count($users);
+    }
+
+    private static function best_sellers(): void {
+        $products = wc_get_products(['status' => 'publish', 'limit' => 3, 'orderby' => 'meta_value_num', 'meta_key' => 'total_sales', 'order' => 'DESC', 'return' => 'objects']);
+        echo '<section class="shp-card shp-best-sellers"><div class="shp-card-head"><div><span class="shp-eyebrow">محبوب‌ترین‌ها</span><h3>محصولات پرفروش</h3><p>بر اساس تعداد فروش ثبت‌شده در ووکامرس</p></div><span class="shp-chart-tag">۳ محصول برتر</span></div>';
+        if (!$products) { echo '<div class="shp-empty">هنوز اطلاعات فروش کافی برای رتبه‌بندی محصولات وجود ندارد.</div>'; }
+        else {
+            echo '<div class="shp-best-list">';
+            foreach ($products as $index => $product) {
+                $image = $product->get_image('woocommerce_thumbnail', ['class' => 'shp-best-image', 'loading' => 'lazy']);
+                echo '<article class="shp-best-item"><span class="shp-best-rank">' . (int) ($index + 1) . '</span>' . $image . '<div class="shp-best-info"><b>' . esc_html($product->get_name()) . '</b><small>' . number_format_i18n((int) $product->get_total_sales()) . ' فروش</small></div><strong>' . wp_kses_post(wc_price((float) $product->get_price())) . '</strong></article>';
+            }
+            echo '</div>';
+        }
+        echo '</section>';
     }
 
     private static function sum_orders(array $orders): float {
