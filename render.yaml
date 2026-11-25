@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shahaneh-admin-api
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: WORDPRESS_SITE_URL
+        value: https://shahanee.com
+      - key: WOOCOMMERCE_CONSUMER_KEY
+        sync: false
+      - key: WOOCOMMERCE_CONSUMER_SECRET
+        sync: false
+      - key: ADMIN_API_TOKEN
+        sync: false
