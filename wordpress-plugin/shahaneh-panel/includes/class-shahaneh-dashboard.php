@@ -15,8 +15,9 @@ final class Shahaneh_Dashboard {
             return;
         }
 
-        $today_start = wp_date('Y-m-d 00:00:00', current_time('timestamp'));
-        $month_start = wp_date('Y-m-01 00:00:00', current_time('timestamp'));
+        $local_now = current_datetime();
+        $today_start = $local_now->format('Y-m-d 00:00:00');
+        $month_start = $local_now->format('Y-m-01 00:00:00');
         $sales_statuses = ['processing', 'completed'];
         $today_orders = wc_get_orders(['status' => $sales_statuses, 'date_created' => '>=' . $today_start, 'limit' => -1, 'return' => 'objects']);
         $month_orders = wc_get_orders(['status' => $sales_statuses, 'date_created' => '>=' . $month_start, 'limit' => -1, 'return' => 'objects']);
@@ -24,10 +25,9 @@ final class Shahaneh_Dashboard {
         $today_revenue = self::sum_orders($today_orders);
         $month_revenue = self::sum_orders($month_orders);
 
-        $order_counts = wp_count_posts('shop_order');
-        $pending = isset($order_counts->wc_pending) ? (int) $order_counts->wc_pending : 0;
-        $processing = isset($order_counts->wc_processing) ? (int) $order_counts->wc_processing : 0;
-        $completed = isset($order_counts->wc_completed) ? (int) $order_counts->wc_completed : 0;
+        $pending = function_exists('wc_orders_count') ? (int) wc_orders_count('pending') : 0;
+        $processing = function_exists('wc_orders_count') ? (int) wc_orders_count('processing') : 0;
+        $completed = function_exists('wc_orders_count') ? (int) wc_orders_count('completed') : 0;
         $product_counts = wp_count_posts('product');
         $product_total = $product_counts ? (int) $product_counts->publish : 0;
         $low_stock = self::low_stock_products();
