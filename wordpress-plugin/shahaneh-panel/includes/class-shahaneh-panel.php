@@ -230,8 +230,7 @@ final class Shahaneh_Panel {
             <?php if ($error): ?><div class="shp-error"><?php echo esc_html($error); ?></div><?php endif; ?>
             <form method="post"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_email">ایمیل مدیر مجاز</label><input id="panel_email" name="panel_email" type="email" autocomplete="username" required><label for="panel_password">رمز مستقل پنل</label><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" required><button type="submit">ورود به پنل</button></form></section>
         <?php else: $panel_user = get_user_by('id', $user_id); ?>
-            <section class="shp-welcome"><span class="shp-check">✓</span><div><h2>خوش آمدید<?php echo $panel_user ? '، ' . esc_html($panel_user->display_name) : ''; ?> به پنل شاهانه</h2><p>ورود امن انجام شد. اتصال داده‌های زنده ووکامرس در فاز بعدی پیاده‌سازی می‌شود.</p></div></section>
-            <div class="shp-grid"><article class="shp-card"><small>وضعیت اتصال</small><h3>در انتظار پیکربندی</h3><p>داده آزمایشی به‌عنوان داده واقعی نمایش داده نمی‌شود.</p></article><article class="shp-card"><small>امنیت نشست</small><h3>فعال</h3><p>کوکی امضاشده و HttpOnly.</p></article><article class="shp-card"><small>گام بعدی</small><h3>داشبورد زنده</h3><p>اتصال امن WooCommerce.</p></article></div>
+            <?php Shahaneh_Dashboard::render($user_id); ?>
         <?php endif; ?>
         <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div></body></html><?php
     }
