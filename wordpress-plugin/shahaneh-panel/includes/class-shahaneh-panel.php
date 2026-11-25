@@ -267,7 +267,7 @@ final class Shahaneh_Panel {
             </aside>
             <main class="shp-main">
                 <header class="shp-topbar shp-topbar-reference">
-                    <div class="shp-profile-chip"><span class="shp-profile-avatar"><?php echo esc_html(mb_substr((string) (get_user_by('id', $user_id)->display_name ?? 'ش'), 0, 1)); ?></span><span><b><?php echo esc_html(get_user_by('id', $user_id)->display_name ?? 'مدیر شاهانه'); ?></b><small>مدیر کل</small></span><span class="shp-profile-chevron">⌄</span></div>
+                    <div class="shp-profile-chip"><span class="shp-profile-avatar">ش</span><span><b><?php echo esc_html($authenticated ? (get_user_by('id', $user_id)->display_name ?? 'مدیر شاهانه') : 'ورود مهمان'); ?></b><small>مدیر کل</small></span><span class="shp-profile-chevron">⌄</span></div>
                     <div class="shp-topbar-center"><span class="shp-topbar-brandline">SHAHANEH ADMIN WORKSPACE</span><b>مدیریت هوشمند فروشگاه</b></div>
                     <div class="shp-topbar-actions"><span class="shp-top-date"><b>امروز</b><?php echo esc_html(wp_date('l، j F')); ?><small><?php echo esc_html(wp_date('H:i')); ?></small></span><span class="shp-top-notice" title="سفارش‌های در انتظار">♧</span><form method="post" class="shp-logout-form"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout" type="submit">خروج</button></form></div>
                 </header>
