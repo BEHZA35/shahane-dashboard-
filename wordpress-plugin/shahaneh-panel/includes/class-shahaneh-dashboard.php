@@ -6,8 +6,7 @@ if (!defined('ABSPATH')) { exit; }
  */
 final class Shahaneh_Dashboard {
     public static function render(int $user_id): void {
-        $user = get_user_by('id', $user_id);
-        echo '<section class="shp-welcome"><div class="shp-welcome-mark">✦</div><div><span class="shp-eyebrow">داشبورد اختصاصی فروشگاه</span><h2>خوش آمدید' . ($user ? '، ' . esc_html($user->display_name) : '') . '</h2><p>همه چیز برای مدیریت بهتر شاهانه، یک‌جا در دسترس شماست.</p></div><div class="shp-welcome-orb" aria-hidden="true"></div></section>';
+        // The panel shell renders the single welcome hero; this module renders live commerce data only.
 
         if (!class_exists('WooCommerce') || !function_exists('wc_get_orders')) {
             echo '<section class="shp-card shp-notice"><h2>ووکامرس در دسترس نیست</h2><p>برای نمایش آمار واقعی، افزونه WooCommerce باید روی این نصب فعال باشد.</p></section>';
