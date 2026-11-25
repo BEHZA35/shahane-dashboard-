@@ -42,8 +42,8 @@ jobs:
           grep -q 'Plugin Name:' wordpress-plugin/shahaneh-panel/shahaneh-panel.php
           mkdir -p dist
           cd wordpress-plugin
-          zip -r ../../dist/shahaneh-panel-phase-1.zip shahaneh-panel
-          cd ../..
+          zip -r ../dist/shahaneh-panel-phase-1.zip shahaneh-panel
+          cd ..
           unzip -t dist/shahaneh-panel-phase-1.zip
           unzip -l dist/shahaneh-panel-phase-1.zip
 
