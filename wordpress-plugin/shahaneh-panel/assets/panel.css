@@ -193,3 +193,40 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
 @media(max-width:800px){.shp-shell{display:block}.shp-side{height:auto;max-height:none;position:relative;grid-column:auto;grid-row:auto}.shp-side nav{display:flex;overflow-x:auto;max-height:none}.shp-side nav a,.shp-side nav span{flex:0 0 auto}.shp-main{grid-column:auto;grid-row:auto}.shp-main>header{flex-wrap:wrap}.shp-header-user{min-width:110px}.shp-header-title{order:3;flex-basis:100%}.shp-header-tools{margin-right:auto}.shp-best-list{grid-template-columns:1fr}}
 @media(max-width:520px){.shp-metrics-primary,.shp-metrics-secondary{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.shp-metric{min-height:110px;padding:12px;border-radius:17px}.shp-metric-top i{width:37px;height:37px}.shp-metric strong{font-size:16px}.shp-line-chart svg{height:155px}.shp-line-labels{font-size:8px}.shp-welcome{min-height:135px}.shp-welcome-art{width:32%}.shp-best-item{padding:9px}}
 @media(prefers-reduced-motion:reduce){.shp-chart-line,.shp-chart-point,.shp-welcome{animation:none!important}}
+
+
+/* Contrast and interaction correction — keep menu readable in every state */
+.shp-side{background:linear-gradient(155deg,#073f45 0%,#06363e 48%,#082b35 100%)!important;color:#fff!important}
+.shp-side nav a,.shp-side nav span{
+  color:#f2fffd!important;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(185,238,230,.13);
+  text-shadow:0 1px 2px rgba(0,0,0,.22);
+  font-weight:700;
+}
+.shp-side nav a i,.shp-side nav span i{color:#a9fff0!important;background:rgba(255,255,255,.12)!important}
+.shp-side nav a:hover,.shp-side nav span:hover{
+  color:#fff!important;
+  background:linear-gradient(110deg,#087d83,#075c67)!important;
+  border-color:#39c9c1!important;
+  box-shadow:0 7px 18px rgba(0,20,28,.28),inset 0 1px rgba(255,255,255,.2)!important;
+  transform:translateX(-4px) translateY(-1px);
+}
+.shp-side nav a:hover i,.shp-side nav span:hover i{color:#fff!important;background:rgba(255,255,255,.2)!important}
+.shp-side nav a.active,.shp-side nav a.active:hover{
+  color:#183b39!important;
+  background:linear-gradient(145deg,#fff0b8 0%,#e7bd68 48%,#bd8a35 100%)!important;
+  border:1px solid #fff3cb!important;
+  text-shadow:none!important;
+  box-shadow:0 8px 20px rgba(194,143,48,.35),inset 0 2px 2px rgba(255,255,255,.85),inset 0 -2px 4px rgba(113,74,18,.12)!important;
+}
+.shp-side nav a.active i{color:#fff!important;background:linear-gradient(145deg,#0d9c9c,#07656d)!important}
+.shp-side nav a:focus-visible,.shp-side nav span:focus-visible{outline:3px solid #ffd36d;outline-offset:2px}
+.shp-side>p,.shp-side-foot{color:#b9d9d4!important}
+.shp-brand small{color:#c1e5df!important}
+.shp-metric,.shp-card,.shp-chart-card,.shp-welcome{border-radius:25px!important}
+.shp-metric{box-shadow:0 12px 25px rgba(12,72,80,.12),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -3px 8px rgba(7,110,116,.045)!important}
+.shp-metric:hover{transform:translateY(-7px) perspective(850px) rotateX(2deg) rotateY(-1deg)!important;box-shadow:0 21px 34px rgba(12,72,80,.2),inset 0 2px 0 #fff!important}
+.shp-chart-card,.shp-card{box-shadow:0 13px 28px rgba(12,72,80,.1),inset 0 2px 0 #fff!important}
+.shp-best-item:hover{transform:translateY(-5px) scale(1.012)!important}
+@media(prefers-reduced-motion:reduce){.shp-side nav a,.shp-side nav span,.shp-metric,.shp-best-item{transition:none!important}}
