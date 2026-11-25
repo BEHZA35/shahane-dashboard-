@@ -1,0 +1,56 @@
+name: Build Shahaneh Panel Plugin
+
+on:
+  push:
+    branches:
+      - phase-1-plugin-core
+    paths:
+      - 'wordpress-plugin/shahaneh-panel/**'
+      - '.github/workflows/build-shahaneh-plugin.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: none
+
+      - name: PHP syntax check
+        shell: bash
+        run: |
+          set -euo pipefail
+          find wordpress-plugin/shahaneh-panel -type f -name '*.php' -print0 | while IFS= read -r -d '' file; do
+            php -l "$file"
+          done
+
+      - name: Validate plugin structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f wordpress-plugin/shahaneh-panel/shahaneh-panel.php
+          test -f wordpress-plugin/shahaneh-panel/readme.txt
+          grep -q 'Plugin Name:' wordpress-plugin/shahaneh-panel/shahaneh-panel.php
+          mkdir -p dist
+          cd wordpress-plugin
+          zip -r ../../dist/shahaneh-panel-phase-1.zip shahaneh-panel
+          cd ../..
+          unzip -t dist/shahaneh-panel-phase-1.zip
+          unzip -l dist/shahaneh-panel-phase-1.zip
+
+      - name: Upload installable plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: shahaneh-panel-phase-1
+          path: dist/shahaneh-panel-phase-1.zip
+          if-no-files-found: error
+          retention-days: 14
