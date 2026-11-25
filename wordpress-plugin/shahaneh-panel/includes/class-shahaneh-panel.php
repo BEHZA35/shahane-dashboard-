@@ -263,7 +263,7 @@ final class Shahaneh_Panel {
                     <div class="shp-topbar-actions">
                         <span class="shp-top-date"><b>امروز</b><?php echo esc_html(wp_date('l، j F')); ?></span>
                         <?php if ($authenticated): ?>
-                        <span class="shp-top-avatar"><?php echo esc_html(mb_substr((string) (get_user_by('id', $user_id)->display_name ?? 'ش'), 0, 1)); ?></span>
+                        <span class="shp-top-avatar">ش</span>
                         <form method="post" class="shp-logout-form"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout" type="submit"><span>↪</span> خروج</button></form>
                         <?php endif; ?>
                     </div>
