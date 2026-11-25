@@ -234,21 +234,29 @@ final class Shahaneh_Panel {
                 <div class="shp-store-switch"><span class="shp-store-avatar">ش</span><span><b>فروشگاه شاهانه</b><small>مدیریت فروشگاه</small></span><span class="shp-chevron">⌄</span></div>
                 <div class="shp-nav-label">مدیریت فروشگاه</div>
                 <nav class="shp-nav" aria-label="منوی پنل">
-                    <a class="shp-nav-item is-active" href="<?php echo esc_url(home_url('/panel/')); ?>"><span class="shp-nav-icon">⌂</span><span>داشبورد</span><em>نمای کلی</em></a>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▦</span><span>محصولات</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">◇</span><span>قیمت دوم</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▤</span><span>دسته‌بندی‌ها</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▣</span><span>سفارش‌ها</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♙</span><span>مشتریان</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▥</span><span>انبار و موجودی</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">%</span><span>تخفیف‌ها</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-label shp-nav-label-spaced">رشد و ابزارها</div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▧</span><span>گزارش‌ها و مالی</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✉</span><span>پیامک و اتوماسیون</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✧</span><span>دستیار هوشمند</span><small>در حال توسعه</small></div>
+                    <a class="shp-nav-item is-active" href="<?php echo esc_url(home_url('/panel/')); ?>"><span class="shp-nav-icon">⌂</span><span>داشبورد</span></a>
+                    <div class="shp-nav-label shp-nav-label-spaced">مدیریت فروشگاه</div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♟</span><span>محصولات</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">◆</span><span>قیمت دوم</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▦</span><span>دسته‌بندی‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">🛒</span><span>سفارش‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♙</span><span>مشتریان</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▣</span><span>انبار و موجودی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">％</span><span>تخفیف‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-label shp-nav-label-spaced">رشد و بازاریابی</div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▥</span><span>گزارش‌ها و امور مالی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▧</span><span>رسانه و تصاویر</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✉</span><span>پیامک و اطلاع‌رسانی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♧</span><span>اتوماسیون</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♛</span><span>باشگاه مشتریان</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✧</span><span>سئو و رشد فروشگاه</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✦</span><span>دستیار هوش مصنوعی</span><small>به‌زودی</small></div>
                     <div class="shp-nav-label shp-nav-label-spaced">مدیریت سیستم</div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">⚙</span><span>تنظیمات پنل</span><small>در حال توسعه</small></div>
-                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♧</span><span>امنیت و کاربران</span><small>در حال توسعه</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♙</span><span>کاربران و دسترسی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♧</span><span>اعلان‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">⛨</span><span>امنیت و فعالیت‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▤</span><span>پشتیبان‌گیری</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">⚙</span><span>تنظیمات عمومی</span><small>به‌زودی</small></div>
                 </nav>
                 <div class="shp-sidebar-bottom"><div class="shp-help-orb">?</div><div><b>به کمک نیاز دارید؟</b><small>مرکز راهنمای شاهانه</small></div></div>
                 <?php else: ?>
@@ -258,15 +266,10 @@ final class Shahaneh_Panel {
                 <div class="shp-sidebar-footer"><span class="shp-online-dot"></span> سیستم پنل فعال است <small>v<?php echo esc_html(SHAHANEH_PANEL_VERSION); ?></small></div>
             </aside>
             <main class="shp-main">
-                <header class="shp-topbar">
-                    <div class="shp-topbar-title"><span class="shp-breadcrumb">شاهانه <i>/</i> <?php echo $authenticated ? 'مدیریت فروشگاه' : 'ورود امن'; ?></span><h1><?php echo $authenticated ? 'داشبورد' : 'خوش آمدید'; ?></h1></div>
-                    <div class="shp-topbar-actions">
-                        <span class="shp-top-date"><b>امروز</b><?php echo esc_html(wp_date('l، j F')); ?></span>
-                        <?php if ($authenticated): ?>
-                        <span class="shp-top-avatar">ش</span>
-                        <form method="post" class="shp-logout-form"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout" type="submit"><span>↪</span> خروج</button></form>
-                        <?php endif; ?>
-                    </div>
+                <header class="shp-topbar shp-topbar-reference">
+                    <div class="shp-profile-chip"><span class="shp-profile-avatar"><?php echo esc_html(mb_substr((string) (get_user_by('id', $user_id)->display_name ?? 'ش'), 0, 1)); ?></span><span><b><?php echo esc_html(get_user_by('id', $user_id)->display_name ?? 'مدیر شاهانه'); ?></b><small>مدیر کل</small></span><span class="shp-profile-chevron">⌄</span></div>
+                    <div class="shp-topbar-center"><span class="shp-topbar-brandline">SHAHANEH ADMIN WORKSPACE</span><b>مدیریت هوشمند فروشگاه</b></div>
+                    <div class="shp-topbar-actions"><span class="shp-top-date"><b>امروز</b><?php echo esc_html(wp_date('l، j F')); ?><small><?php echo esc_html(wp_date('H:i')); ?></small></span><span class="shp-top-notice" title="سفارش‌های در انتظار">♧</span><form method="post" class="shp-logout-form"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout" type="submit">خروج</button></form></div>
                 </header>
                 <?php if (!$password_ready): ?>
                     <section class="shp-card shp-setup-card"><div class="shp-setup-icon">✦</div><span class="shp-eyebrow">راه‌اندازی اولیه</span><h2>یک قدم تا شروع مدیریت شاهانه</h2><p>ابتدا با حساب مدیر وردپرس وارد شوید و از مسیر «تنظیمات ← پنل شاهانه» رمز مستقل پنل را تعیین کنید.</p><a class="shp-primary-link" href="<?php echo esc_url(admin_url('options-general.php?page=shahaneh-panel')); ?>">تنظیم رمز مستقل پنل <span>←</span></a></section>
@@ -278,7 +281,7 @@ final class Shahaneh_Panel {
                         <form method="post" class="shp-login-form"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_email">ایمیل مدیر مجاز</label><div class="shp-input-wrap"><span>✉</span><input id="panel_email" name="panel_email" type="email" autocomplete="username" placeholder="name@example.com" required></div><label for="panel_password">رمز مستقل پنل</label><div class="shp-input-wrap"><span>◇</span><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" placeholder="رمز عبور اختصاصی" required></div><button type="submit" class="shp-login-submit">ورود امن به پنل <span>←</span></button></form><small class="shp-login-foot">این رمز مستقل از رمز ورود وردپرس است.</small></div>
                     </section>
                 <?php else: ?>
-                    <div class="shp-welcome-strip"><div class="shp-welcome-symbol">✦</div><div><span class="shp-eyebrow">SHAHANEH CONTROL CENTER</span><h2>خوش آمدید، <?php echo esc_html(get_user_by('id', $user_id)->display_name ?? 'مدیر شاهانه'); ?></h2><p>نمایی روشن از وضعیت امروز فروشگاه شما؛ همه‌چیز برای یک روز پرفروش آماده است.</p></div><div class="shp-welcome-decoration" aria-hidden="true"><i></i><b></b><span></span></div></div>
+                    
                     <?php Shahaneh_Dashboard::render($user_id); ?>
                 <?php endif; ?>
                 <footer class="shp-footer"><span>شاهانه</span> · پنل مدیریت اختصاصی <i>◆</i> <?php echo esc_html(wp_date('Y')); ?></footer>
