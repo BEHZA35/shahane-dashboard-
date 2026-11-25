@@ -314,3 +314,42 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   .shp-side nav>a,.shp-side nav>span{width:auto;min-width:max-content;min-height:39px}
   .shp-side nav>a>span,.shp-side nav>span>span{white-space:nowrap}
 }
+
+
+/* Shahaneh sidebar hover: orange labels with a clear teal hover surface */
+.shp-side nav>a:hover,
+.shp-side nav>span:hover,
+.shp-side nav>a:focus-visible,
+.shp-side nav>span:focus-visible{
+  color:#ff9a1f!important;
+  background:linear-gradient(105deg,#0b7378 0%,#084f5b 100%)!important;
+  border-color:rgba(255,154,31,.72)!important;
+  box-shadow:0 8px 20px rgba(0,18,25,.30),inset 0 1px 0 rgba(255,255,255,.18),inset 3px 0 0 #ff8a00!important;
+  text-shadow:0 0 10px rgba(255,138,0,.18)!important;
+  transform:translateX(-4px) translateY(-1px);
+}
+.shp-side nav>a:hover>span,
+.shp-side nav>span:hover>span,
+.shp-side nav>a:focus-visible>span,
+.shp-side nav>span:focus-visible>span{
+  color:#ff9a1f!important;
+}
+.shp-side nav>a:hover>i,
+.shp-side nav>span:hover>i,
+.shp-side nav>a:focus-visible>i,
+.shp-side nav>span:focus-visible>i{
+  color:#ff9a1f!important;
+  background:linear-gradient(145deg,#fff0d8,#a95c08)!important;
+  border-color:rgba(255,190,105,.75)!important;
+  box-shadow:0 4px 12px rgba(255,138,0,.22),inset 0 1px rgba(255,255,255,.75)!important;
+}
+/* Keep the selected menu item legible and distinct from hover */
+.shp-side nav>a.active,
+.shp-side nav>a.active:hover{
+  color:#173e3c!important;
+  background:linear-gradient(145deg,#fff2c5 0%,#e8c477 52%,#c18e39 100%)!important;
+}
+.shp-side nav>a.active>span{color:#173e3c!important}
+@media(prefers-reduced-motion:reduce){
+  .shp-side nav>a,.shp-side nav>span{transition:none!important}
+}
