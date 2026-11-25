@@ -215,23 +215,77 @@ final class Shahaneh_Panel {
         $user_id = $this->session_user_id();
         $authenticated = $user_id > 0;
         $password_ready = (bool) get_option(self::OPTION_HASH, '');
+        $logo_id = (int) get_theme_mod('custom_logo');
+        $logo_url = $logo_id ? wp_get_attachment_image_url($logo_id, 'full') : '';
+        $site_name = get_bloginfo('name') ?: 'شاهانه';
         status_header(200);
         nocache_headers();
         ?><!doctype html>
-        <html lang="fa" dir="rtl"><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><title>پنل شاهانه</title><link rel="stylesheet" href="<?php echo esc_url(SHAHANEH_PANEL_URL . 'assets/panel.css?ver=' . SHAHANEH_PANEL_VERSION); ?>"></head>
-        <body class="shp-body"><div class="shp-shell">
-        <aside class="shp-side"><div class="shp-brand"><span>ش</span><div><b>شاهانه</b><small>SHAHANEH PANEL</small></div></div><p>مدیریت فروشگاه</p><nav><a class="active" href="<?php echo esc_url(home_url('/panel/')); ?>">نمای کلی</a><span>محصولات</span><span>سفارش‌ها</span><span>مشتریان</span><span>انبار و گزارش‌ها</span><span>تنظیمات</span></nav><small class="shp-side-foot">نسخه پایه · ۰.۱.۰</small></aside>
-        <main class="shp-main"><header><div><small>SHAHANEH · پنل مدیریت اختصاصی</small><h1><?php echo $authenticated ? 'داشبورد مدیریت شاهانه' : 'ورود امن به پنل شاهانه'; ?></h1></div><span class="shp-header-date"><?php echo esc_html(wp_date('l، j F Y')); ?></span>
-        <?php if ($authenticated): ?><form method="post"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout">خروج امن</button></form><?php endif; ?></header>
-        <?php if (!$password_ready): ?>
-            <section class="shp-card"><h2>راه‌اندازی اولیه</h2><p>ابتدا با حساب مدیر وردپرس وارد شوید و از مسیر «تنظیمات ← پنل شاهانه» رمز مستقل پنل را تعیین کنید.</p><a href="<?php echo esc_url(admin_url('options-general.php?page=shahaneh-panel')); ?>">رفتن به تنظیمات پنل</a></section>
-        <?php elseif (!$authenticated): ?>
-            <section class="shp-login"><div class="shp-emblem">ش</div><h2>ورود مدیر</h2><p>ایمیل مدیر مجاز و رمز مستقل پنل را وارد کنید.</p>
-            <?php if ($error): ?><div class="shp-error"><?php echo esc_html($error); ?></div><?php endif; ?>
-            <form method="post"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_email">ایمیل مدیر مجاز</label><input id="panel_email" name="panel_email" type="email" autocomplete="username" required><label for="panel_password">رمز مستقل پنل</label><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" required><button type="submit">ورود به پنل</button></form></section>
-        <?php else: $panel_user = get_user_by('id', $user_id); ?>
-            <?php Shahaneh_Dashboard::render($user_id); ?>
-        <?php endif; ?>
-        <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div></body></html><?php
+        <html lang="fa" dir="rtl"><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>پنل شاهانه</title><link rel="stylesheet" href="<?php echo esc_url(SHAHANEH_PANEL_URL . 'assets/panel.css?ver=' . SHAHANEH_PANEL_VERSION); ?>"></head>
+        <body class="shp-body <?php echo $authenticated ? 'shp-authenticated' : 'shp-guest'; ?>">
+        <div class="shp-app">
+            <aside class="shp-sidebar">
+                <div class="shp-brand">
+                    <div class="shp-brand-logo"><?php if ($logo_url): ?><img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($site_name); ?>"><?php else: ?><span class="shp-crown">♛</span><?php endif; ?></div>
+                    <div class="shp-brand-copy"><strong>شاهانه</strong><small>SHAHANEH COMMERCE</small></div>
+                    <span class="shp-brand-status" title="پنل اختصاصی"></span>
+                </div>
+                <?php if ($authenticated): ?>
+                <div class="shp-store-switch"><span class="shp-store-avatar">ش</span><span><b>فروشگاه شاهانه</b><small>مدیریت فروشگاه</small></span><span class="shp-chevron">⌄</span></div>
+                <div class="shp-nav-label">مدیریت فروشگاه</div>
+                <nav class="shp-nav" aria-label="منوی پنل">
+                    <a class="shp-nav-item is-active" href="<?php echo esc_url(home_url('/panel/')); ?>"><span class="shp-nav-icon">⌂</span><span>داشبورد</span></a>
+                    <div class="shp-nav-label shp-nav-label-spaced">مدیریت فروشگاه</div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♟</span><span>محصولات</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">◆</span><span>قیمت دوم</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▦</span><span>دسته‌بندی‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">🛒</span><span>سفارش‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♙</span><span>مشتریان</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▣</span><span>انبار و موجودی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">％</span><span>تخفیف‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-label shp-nav-label-spaced">رشد و بازاریابی</div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▥</span><span>گزارش‌ها و امور مالی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▧</span><span>رسانه و تصاویر</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✉</span><span>پیامک و اطلاع‌رسانی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♧</span><span>اتوماسیون</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♛</span><span>باشگاه مشتریان</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✧</span><span>سئو و رشد فروشگاه</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">✦</span><span>دستیار هوش مصنوعی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-label shp-nav-label-spaced">مدیریت سیستم</div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♙</span><span>کاربران و دسترسی</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">♧</span><span>اعلان‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">⛨</span><span>امنیت و فعالیت‌ها</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">▤</span><span>پشتیبان‌گیری</span><small>به‌زودی</small></div>
+                    <div class="shp-nav-item is-disabled"><span class="shp-nav-icon">⚙</span><span>تنظیمات عمومی</span><small>به‌زودی</small></div>
+                </nav>
+                <div class="shp-sidebar-bottom"><div class="shp-help-orb">?</div><div><b>به کمک نیاز دارید؟</b><small>مرکز راهنمای شاهانه</small></div></div>
+                <?php else: ?>
+                <div class="shp-sidebar-art"><div class="shp-art-orbit shp-orbit-one"></div><div class="shp-art-orbit shp-orbit-two"></div><div class="shp-art-gem">♛</div><span>SHAHANEH</span></div>
+                <div class="shp-sidebar-caption">مدیریت هوشمند فروشگاه،<br>با هویت اختصاصی شاهانه.</div>
+                <?php endif; ?>
+                <div class="shp-sidebar-footer"><span class="shp-online-dot"></span> سیستم پنل فعال است <small>v<?php echo esc_html(SHAHANEH_PANEL_VERSION); ?></small></div>
+            </aside>
+            <main class="shp-main">
+                <header class="shp-topbar shp-topbar-reference">
+                    <div class="shp-profile-chip"><span class="shp-profile-avatar"><?php echo esc_html(mb_substr((string) (get_user_by('id', $user_id)->display_name ?? 'ش'), 0, 1)); ?></span><span><b><?php echo esc_html(get_user_by('id', $user_id)->display_name ?? 'مدیر شاهانه'); ?></b><small>مدیر کل</small></span><span class="shp-profile-chevron">⌄</span></div>
+                    <div class="shp-topbar-center"><span class="shp-topbar-brandline">SHAHANEH ADMIN WORKSPACE</span><b>مدیریت هوشمند فروشگاه</b></div>
+                    <div class="shp-topbar-actions"><span class="shp-top-date"><b>امروز</b><?php echo esc_html(wp_date('l، j F')); ?><small><?php echo esc_html(wp_date('H:i')); ?></small></span><span class="shp-top-notice" title="سفارش‌های در انتظار">♧</span><form method="post" class="shp-logout-form"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout" type="submit">خروج</button></form></div>
+                </header>
+                <?php if (!$password_ready): ?>
+                    <section class="shp-card shp-setup-card"><div class="shp-setup-icon">✦</div><span class="shp-eyebrow">راه‌اندازی اولیه</span><h2>یک قدم تا شروع مدیریت شاهانه</h2><p>ابتدا با حساب مدیر وردپرس وارد شوید و از مسیر «تنظیمات ← پنل شاهانه» رمز مستقل پنل را تعیین کنید.</p><a class="shp-primary-link" href="<?php echo esc_url(admin_url('options-general.php?page=shahaneh-panel')); ?>">تنظیم رمز مستقل پنل <span>←</span></a></section>
+                <?php elseif (!$authenticated): ?>
+                    <section class="shp-login-layout">
+                        <div class="shp-login-intro"><span class="shp-eyebrow">SHAHANEH PRIVATE WORKSPACE</span><h2>همه چیز برای<br><em>رشد شاهانه</em></h2><p>به فضای مدیریت اختصاصی فروشگاه وارد شوید و تمام امور فروشگاه را در یک محیط امن و یکپارچه مدیریت کنید.</p><div class="shp-login-benefits"><span>✦ مدیریت یکپارچه فروشگاه</span><span>✦ دسترسی امن و اختصاصی</span><span>✦ تجربه فارسی و هوشمند</span></div></div>
+                        <div class="shp-login-card"><div class="shp-login-card-head"><div class="shp-login-lock">♙</div><span class="shp-eyebrow">SECURE ADMIN ACCESS</span><h2>ورود به پنل شاهانه</h2><p>اطلاعات حساب مدیریتی خود را وارد کنید.</p></div>
+                        <?php if ($error): ?><div class="shp-error" role="alert"><?php echo esc_html($error); ?></div><?php endif; ?>
+                        <form method="post" class="shp-login-form"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_email">ایمیل مدیر مجاز</label><div class="shp-input-wrap"><span>✉</span><input id="panel_email" name="panel_email" type="email" autocomplete="username" placeholder="name@example.com" required></div><label for="panel_password">رمز مستقل پنل</label><div class="shp-input-wrap"><span>◇</span><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" placeholder="رمز عبور اختصاصی" required></div><button type="submit" class="shp-login-submit">ورود امن به پنل <span>←</span></button></form><small class="shp-login-foot">این رمز مستقل از رمز ورود وردپرس است.</small></div>
+                    </section>
+                <?php else: ?>
+                    
+                    <?php Shahaneh_Dashboard::render($user_id); ?>
+                <?php endif; ?>
+                <footer class="shp-footer"><span>شاهانه</span> · پنل مدیریت اختصاصی <i>◆</i> <?php echo esc_html(wp_date('Y')); ?></footer>
+            </main>
+        </div></body></html><?php
     }
 }
