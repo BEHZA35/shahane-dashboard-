@@ -13,10 +13,10 @@ Branch: `phase-1-plugin-core`
 - [x] No demo WooCommerce data is displayed as live data.
 
 ## Known gaps — do not treat Phase 1 as accepted
-- [ ] Authentication currently also requires a logged-in WordPress administrator; the independent panel session requirement needs a final design/implementation pass.
-- [ ] Add automated PHP lint and WordPress coding/security checks.
+- [x] Panel login no longer depends on an active WordPress login session; it uses the allowlisted administrator email plus the independent panel password and a signed, time-limited cookie. The identity must still belong to a WordPress user with manage_options.
+- [ ] Run automated PHP lint and WordPress coding/security checks.
 - [ ] Test rewrite flushing, cookie behavior behind HTTPS/proxies, and login throttling on LocalWP.
-- [ ] Test role/email allowlist edge cases and unchecked settings persistence.
+- [x] Fix unchecked settings persistence for the panel enabled toggle.\n- [ ] Test role/email allowlist edge cases and unchecked settings persistence.
 - [ ] Produce and inspect an installable ZIP; verify its internal folder structure.
 - [ ] Test install/activate/deactivate/uninstall on LocalWP at `http://shahanee-test.local`.
 - [ ] User acceptance before any production deployment.
