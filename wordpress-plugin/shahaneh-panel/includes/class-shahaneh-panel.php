@@ -127,47 +127,53 @@ final class Shahaneh_Panel {
         $rate_key = 'shp_login_' . hash_hmac('sha256', $ip, wp_salt('auth'));
         $attempts = (int) get_transient($rate_key);
         if ($attempts >= 6) { status_header(429); $this->render('تعداد تلاش‌ها زیاد است. ۱۵ دقیقه دیگر دوباره امتحان کنید.'); exit; }
+        $email = isset($_POST['panel_email']) ? strtolower(sanitize_email(wp_unslash($_POST['panel_email']))) : '';
         $password = isset($_POST['panel_password']) ? (string) wp_unslash($_POST['panel_password']) : '';
         $hash = (string) get_option(self::OPTION_HASH, '');
-        if (!$hash || !password_verify($password, $hash)) {
+        $user = $email && is_email($email) ? get_user_by('email', $email) : false;
+        $authorized = $user && $this->allowed_admin_id((int) $user->ID);
+        if (!$authorized || !$hash || !password_verify($password, $hash)) {
             set_transient($rate_key, $attempts + 1, 15 * MINUTE_IN_SECONDS);
-            status_header(401); $this->render('رمز پنل صحیح نیست.'); exit;
+            status_header(401); $this->render('ایمیل یا رمز پنل صحیح نیست، یا حساب شما مجاز نیست.'); exit;
         }
         delete_transient($rate_key);
-        $this->set_session_cookie();
+        $this->set_session_cookie((int) $user->ID);
         wp_safe_redirect(home_url('/panel'));
         exit;
     }
-    private function allowed_admin(): bool {
-        if (!is_user_logged_in() || !current_user_can('manage_options')) { return false; }
+    private function allowed_admin_id(int $user_id): bool {
+        $user = get_user_by('id', $user_id);
+        if (!$user || !user_can($user, 'manage_options')) { return false; }
         $allowed = array_filter(array_map('trim', explode("\n", (string) get_option(self::OPTION_EMAILS, ''))));
-        if (!$allowed) { return true; }
-        $email = strtolower((string) wp_get_current_user()->user_email);
-        return in_array($email, array_map('strtolower', $allowed), true);
+        return $allowed && in_array(strtolower((string) $user->user_email), array_map('strtolower', $allowed), true);
     }
-    private function session_payload(): string {
+    private function session_payload(int $user_id): string {
         $expires = (string) (time() + self::SESSION_TTL);
-        $user = (string) get_current_user_id();
-        $nonce = wp_generate_password(24, false, false);
+        $user = (string) $user_id;
+        $nonce = bin2hex(random_bytes(16));
         $data = $user . '|' . $expires . '|' . $nonce;
         $sig = hash_hmac('sha256', $data, wp_salt('auth'));
         return base64_encode($data . '|' . $sig);
     }
-    private function valid_session(): bool {
-        if (!$this->allowed_admin() || empty($_COOKIE[self::COOKIE])) { return false; }
+    private function session_user_id(): int {
+        if (empty($_COOKIE[self::COOKIE])) { return 0; }
         $raw = base64_decode((string) wp_unslash($_COOKIE[self::COOKIE]), true);
-        if (!$raw) { return false; }
+        if (!$raw) { return 0; }
         $parts = explode('|', $raw);
-        if (count($parts) !== 4) { return false; }
+        if (count($parts) !== 4) { return 0; }
         [$user, $expires, $nonce, $signature] = $parts;
-        if (!ctype_digit($user) || !ctype_digit($expires) || (int)$user !== get_current_user_id() || (int)$expires < time()) { return false; }
+        if (!ctype_digit($user) || !ctype_digit($expires) || (int) $expires < time()) { return 0; }
         $data = $user . '|' . $expires . '|' . $nonce;
-        return hash_equals(hash_hmac('sha256', $data, wp_salt('auth')), $signature);
+        if (!hash_equals(hash_hmac('sha256', $data, wp_salt('auth')), $signature)) { return 0; }
+        return $this->allowed_admin_id((int) $user) ? (int) $user : 0;
     }
-    private function set_session_cookie(): void {
-        if (!$this->allowed_admin()) { return; }
+    private function valid_session(): bool {
+        return $this->session_user_id() > 0;
+    }
+    private function set_session_cookie(int $user_id): void {
+        if (!$this->allowed_admin_id($user_id)) { return; }
         $secure = is_ssl();
-        setcookie(self::COOKIE, $this->session_payload(), [
+        setcookie(self::COOKIE, $this->session_payload($user_id), [
             'expires' => time() + self::SESSION_TTL, 'path' => COOKIEPATH ?: '/',
             'domain' => COOKIE_DOMAIN, 'secure' => $secure, 'httponly' => true, 'samesite' => 'Strict'
         ]);
@@ -188,8 +194,8 @@ final class Shahaneh_Panel {
         <body class="shp-body"><div class="shp-shell"><aside class="shp-side"><div class="shp-brand"><span>ش</span><div><b>شاهانه</b><small>SHAHANEH PANEL</small></div></div><p>مدیریت فروشگاه</p><nav><a class="active" href="<?php echo esc_url(home_url('/panel')); ?>">نمای کلی</a><span>محصولات</span><span>سفارش‌ها</span><span>مشتریان</span><span>انبار و گزارش‌ها</span><span>تنظیمات</span></nav><small class="shp-side-foot">نسخه پایه · ۰.۱.۰</small></aside>
         <main class="shp-main"><header><div><small>پنل اختصاصی مدیریت</small><h1><?php echo $authenticated ? 'خوش آمدید به پنل شاهانه' : 'ورود امن به پنل شاهانه'; ?></h1></div><?php if ($authenticated): ?><form method="post"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout">خروج امن</button></form><?php endif; ?></header>
         <?php if (!$password_ready): ?><section class="shp-card"><h2>راه‌اندازی اولیه</h2><p>برای تعیین رمز مستقل، ابتدا با حساب مدیر وردپرس وارد شوید و از مسیر «تنظیمات ← پنل شاهانه» رمز پنل را تعیین کنید.</p><a href="<?php echo esc_url(admin_url('options-general.php?page=shahaneh-panel')); ?>">رفتن به تنظیمات پنل</a></section>
-        <?php elseif (!$authenticated): ?><section class="shp-login"><div class="shp-emblem">ش</div><h2>ورود مدیر</h2><p>برای ورود، حساب مدیر وردپرسِ مجاز و رمز مستقل پنل لازم است.</p><?php if ($error): ?><div class="shp-error"><?php echo esc_html($error); ?></div><?php endif; ?><form method="post"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_password">رمز مستقل پنل</label><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" required><button type="submit">ورود به پنل</button></form></section>
-        <?php else: ?><section class="shp-welcome"><span class="shp-check">✓</span><div><h2>هسته پنل فعال است</h2><p>احراز هویت مستقل پنل انجام شد. ماژول‌های اطلاعات زنده ووکامرس در فازهای بعدی اضافه می‌شوند.</p></div></section><div class="shp-grid"><article class="shp-card"><small>وضعیت اتصال</small><h3>در انتظار پیکربندی</h3><p>هیچ داده نمایشی به‌عنوان داده واقعی نمایش داده نمی‌شود.</p></article><article class="shp-card"><small>امنیت نشست</small><h3>فعال</h3><p>کوکی امضاشده، HttpOnly و محدود به مدیر مجاز.</p></article><article class="shp-card"><small>گام بعدی</small><h3>داشبورد زنده</h3><p>اتصال امن WooCommerce در فاز دوم.</p></article></div><?php endif; ?>
+        <?php elseif (!$authenticated): ?><section class="shp-login"><div class="shp-emblem">ش</div><h2>ورود مدیر</h2><p>برای ورود، ایمیل مدیرِ مجاز و رمز مستقل پنل لازم است. ورود به پیشخوان وردپرس جداگانه انجام نمی‌شود.</p><?php if ($error): ?><div class="shp-error"><?php echo esc_html($error); ?></div><?php endif; ?><form method="post"><input type="hidden" name="panel_action" value="login"><?php wp_nonce_field('shahaneh_panel_login'); ?><label for="panel_email">ایمیل مدیر مجاز</label><input id="panel_email" name="panel_email" type="email" autocomplete="username" required><label for="panel_password">رمز مستقل پنل</label><input id="panel_password" name="panel_password" type="password" autocomplete="current-password" required><button type="submit">ورود به پنل</button></form></section>
+        <?php else: $panel_user = get_user_by('id', $this->session_user_id()); ?><section class="shp-welcome"><span class="shp-check">✓</span><div><h2>خوش آمدید<?php echo $panel_user ? '، ' . esc_html($panel_user->display_name) : ''; ?> به پنل شاهانه</h2><p>احراز هویت مستقل پنل انجام شد. ماژول‌های اطلاعات زنده ووکامرس در فازهای بعدی اضافه می‌شوند.</p></div></section><div class="shp-grid"><article class="shp-card"><small>وضعیت اتصال</small><h3>در انتظار پیکربندی</h3><p>هیچ داده نمایشی به‌عنوان داده واقعی نمایش داده نمی‌شود.</p></article><article class="shp-card"><small>امنیت نشست</small><h3>فعال</h3><p>کوکی امضاشده، HttpOnly و محدود به مدیر مجاز.</p></article><article class="shp-card"><small>گام بعدی</small><h3>داشبورد زنده</h3><p>اتصال امن WooCommerce در فاز دوم.</p></article></div><?php endif; ?>
         <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div></body></html><?php
     }
 }
