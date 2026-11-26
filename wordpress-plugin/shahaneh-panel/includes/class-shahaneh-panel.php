@@ -222,7 +222,7 @@ final class Shahaneh_Panel {
         <body class="shp-body"><div class="shp-shell">
         <aside class="shp-side"><div class="shp-brand"><span>♛</span><div><b>شاهانه</b><small>SHAHANEH PANEL</small></div></div><p>مدیریت فروشگاه</p><nav aria-label="منوی مدیریت شاهانه">
         <a class="active" href="<?php echo esc_url(home_url('/panel/')); ?>"><i class="dashicons dashicons-dashboard" aria-hidden="true"></i><span>داشبورد</span></a>
-        <span class="shp-nav-item"><i class="dashicons dashicons-products" aria-hidden="true"></i><span>محصولات</span></span><span class="shp-nav-item"><i class="dashicons dashicons-tag" aria-hidden="true"></i><span>قیمت دوم</span></span><span class="shp-nav-item"><i class="dashicons dashicons-category" aria-hidden="true"></i><span>دسته‌بندی‌ها</span></span><span class="shp-nav-item"><i class="dashicons dashicons-cart" aria-hidden="true"></i><span>سفارش‌ها</span></span><span class="shp-nav-item"><i class="dashicons dashicons-groups" aria-hidden="true"></i><span>مشتریان</span></span><span class="shp-nav-item"><i class="dashicons dashicons-archive" aria-hidden="true"></i><span>انبار و موجودی</span></span><span class="shp-nav-item"><i class="dashicons dashicons-tickets-alt" aria-hidden="true"></i><span>تخفیف‌ها</span></span><span class="shp-nav-item"><i class="dashicons dashicons-chart-bar" aria-hidden="true"></i><span>گزارش‌ها و مالی</span></span><span class="shp-nav-item"><i class="dashicons dashicons-format-gallery" aria-hidden="true"></i><span>رسانه و تصاویر</span></span><span class="shp-nav-item"><i class="dashicons dashicons-email" aria-hidden="true"></i><span>پیامک و اطلاع‌رسانی</span></span><span class="shp-nav-item"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>اتوماسیون</span></span><span class="shp-nav-item"><i class="dashicons dashicons-awards" aria-hidden="true"></i><span>باشگاه مشتریان</span></span><span class="shp-nav-item"><i class="dashicons dashicons-chart-line" aria-hidden="true"></i><span>سئو و رشد فروشگاه</span></span><span class="shp-nav-item"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i><span>دستیار هوش مصنوعی</span></span><span class="shp-nav-item"><i class="dashicons dashicons-shield" aria-hidden="true"></i><span>کاربران و دسترسی</span></span><span class="shp-nav-item"><i class="dashicons dashicons-bell" aria-hidden="true"></i><span>اعلان‌ها</span></span><span class="shp-nav-item"><i class="dashicons dashicons-products" aria-hidden="true"></i><span>امنیت و فعالیت‌ها</span></span><span class="shp-nav-item"><i class="dashicons dashicons-database-export" aria-hidden="true"></i><span>پشتیبان‌گیری</span></span><span class="shp-nav-item"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>تنظیمات عمومی</span></span>
+        <span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-products" aria-hidden="true"></i><span>محصولات</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-tag" aria-hidden="true"></i><span>قیمت دوم</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-category" aria-hidden="true"></i><span>دسته‌بندی‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-cart" aria-hidden="true"></i><span>سفارش‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-groups" aria-hidden="true"></i><span>مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-archive" aria-hidden="true"></i><span>انبار و موجودی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-tickets-alt" aria-hidden="true"></i><span>تخفیف‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-chart-bar" aria-hidden="true"></i><span>گزارش‌ها و مالی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-format-gallery" aria-hidden="true"></i><span>رسانه و تصاویر</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-email" aria-hidden="true"></i><span>پیامک و اطلاع‌رسانی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>اتوماسیون</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-awards" aria-hidden="true"></i><span>باشگاه مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-chart-line" aria-hidden="true"></i><span>سئو و رشد فروشگاه</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i><span>دستیار هوش مصنوعی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-shield" aria-hidden="true"></i><span>کاربران و دسترسی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-bell" aria-hidden="true"></i><span>اعلان‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-lock" aria-hidden="true"></i><span>امنیت و فعالیت‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-database-export" aria-hidden="true"></i><span>پشتیبان‌گیری</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>تنظیمات عمومی</span></span>
         </nav><small class="shp-side-foot">شاهانه · نسخه توسعه</small></aside>
         <main class="shp-main"><header><div class="shp-header-user"><span class="shp-avatar">ش</span><div><small><?php echo $authenticated ? esc_html(wp_get_current_user()->user_login) : 'مدیریت فروشگاه'; ?></small><b>مدیر کل</b></div></div><div class="shp-header-title"><small>SHAHANEH · پنل مدیریت اختصاصی</small><h1><?php echo $authenticated ? 'داشبورد مدیریت شاهانه' : 'ورود امن به پنل شاهانه'; ?></h1></div><div class="shp-header-tools"><span class="shp-header-tool">♧</span><span class="shp-header-tool">☾</span><span class="shp-header-date">▦ <?php echo esc_html(wp_date('l، j F Y')); ?></span></div>
         <?php if ($authenticated): ?><form method="post"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout">خروج امن</button></form><?php endif; ?></header>
@@ -235,6 +235,30 @@ final class Shahaneh_Panel {
         <?php else: $panel_user = get_user_by('id', $user_id); ?>
             <?php Shahaneh_Dashboard::render($user_id); ?>
         <?php endif; ?>
-        <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div></body></html><?php
+        <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div><script>
+(function(){
+  var nav=document.querySelector('.shp-side nav');
+  if(!nav)return;
+  var items=nav.querySelectorAll('a, .shp-nav-item');
+  function select(item){
+    items.forEach(function(el){el.classList.remove('active','is-selected');});
+    item.classList.add('active','is-selected');
+    try{localStorage.setItem('shp_selected_menu',String(Array.prototype.indexOf.call(items,item)));}catch(e){}
+  }
+  items.forEach(function(item){
+    item.addEventListener('click',function(e){
+      if(item.classList.contains('shp-nav-item'))e.preventDefault();
+      select(item);
+    });
+    item.addEventListener('keydown',function(e){
+      if(item.classList.contains('shp-nav-item')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();select(item);}
+    });
+  });
+  try{
+    var saved=parseInt(localStorage.getItem('shp_selected_menu'),10);
+    if(!isNaN(saved)&&items[saved])select(items[saved]);
+  }catch(e){}
+})();
+</script></body></html><?php
     }
 }
