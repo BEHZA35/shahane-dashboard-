@@ -463,3 +463,44 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
     box-shadow:0 14px 30px rgba(4,48,58,.18),inset 0 2px 0 rgba(255,255,255,.18) !important;
   }
 }
+
+
+/* UNIFIED GOLD HOVER — override every previous sidebar hover rule */
+.shp-side nav a:not(.active):hover,
+.shp-side nav span:hover,
+.shp-side nav a:not(.active):focus,
+.shp-side nav span:focus{
+  background:#c99b45 !important;
+  background-image:linear-gradient(135deg,#f5d98d 0%,#d9ae58 52%,#bd8a35 100%) !important;
+  background-color:#d9ae58 !important;
+  color:#493511 !important;
+  border:1px solid #f8e5ae !important;
+  box-shadow:0 9px 20px rgba(166,119,35,.32),inset 0 2px 3px rgba(255,255,255,.72),inset 0 -3px 5px rgba(113,74,18,.12) !important;
+  text-shadow:none !important;
+  transform:translateY(-2px) !important;
+}
+.shp-side nav a:not(.active):hover > span,
+.shp-side nav span:hover > span,
+.shp-side nav a:not(.active):focus > span,
+.shp-side nav span:focus > span{
+  color:#493511 !important;
+}
+.shp-side nav a:not(.active):hover > i,
+.shp-side nav span:hover > i,
+.shp-side nav a:not(.active):focus > i,
+.shp-side nav span:focus > i{
+  color:#fff !important;
+  background:linear-gradient(145deg,#9a7028,#725019) !important;
+  border-color:#f8e5ae !important;
+  box-shadow:0 4px 10px rgba(100,68,15,.24),inset 0 1px 2px rgba(255,255,255,.4) !important;
+}
+/* Selected item uses the same unified gold treatment */
+.shp-side nav a.active,
+.shp-side nav a.active:hover,
+.shp-side nav a.active:focus{
+  background:linear-gradient(135deg,#f5d98d 0%,#d9ae58 52%,#bd8a35 100%) !important;
+  background-color:#d9ae58 !important;
+  color:#493511 !important;
+  border-color:#f8e5ae !important;
+}
+.shp-side nav a.active > span{color:#493511 !important}
