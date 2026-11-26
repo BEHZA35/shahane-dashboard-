@@ -782,3 +782,19 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   box-shadow: none !important;
   padding-inline-start: 0 !important;
 }
+
+
+/* FIX: the old generic nav span::before selector also targets the text labels.
+   Remove that pseudo marker from every menu label, not only the menu row. */
+.shp-side nav a > span::before,
+.shp-side nav a > span::after,
+.shp-side nav .shp-nav-item > span::before,
+.shp-side nav .shp-nav-item > span::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
