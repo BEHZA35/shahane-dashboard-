@@ -750,3 +750,10 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   box-shadow: 0 3px 9px rgba(0,0,0,.12) !important;
   filter: none !important;
 }
+
+
+/* Slightly increase the space between sidebar icons and their labels */
+.shp-side nav > a > span,
+.shp-side nav > .shp-nav-item > span {
+  margin-right: 5px !important;
+}
