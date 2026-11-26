@@ -757,3 +757,11 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
 .shp-side nav > .shp-nav-item > span {
   margin-right: 5px !important;
 }
+
+
+/* Clearer spacing between each sidebar icon and its label */
+.shp-side nav > a,
+.shp-side nav > .shp-nav-item {
+  column-gap: 20px !important;
+  gap: 20px !important;
+}
