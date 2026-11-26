@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 190" role="img" aria-label="تصویر تزئینی هدیه و تاج شاهانه">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9fbf5"/><stop offset=".55" stop-color="#8ce5df"/><stop offset="1" stop-color="#eafcf7"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a8"/><stop offset=".45" stop-color="#d7a83e"/><stop offset="1" stop-color="#9b6b18"/></linearGradient>
+ <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#31d6cc"/><stop offset="1" stop-color="#087b83"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#126d6b" flood-opacity=".22"/></filter>
+</defs>
+<rect width="560" height="190" rx="24" fill="url(#bg)"/>
+<path d="M0 150 Q75 115 145 155 T290 145 T430 150 T560 130 V190 H0Z" fill="#fff" opacity=".55"/>
+<g opacity=".85" fill="#fff"><circle cx="30" cy="28" r="25"/><circle cx="62" cy="24" r="30"/><circle cx="90" cy="34" r="22"/><circle cx="482" cy="20" r="23"/><circle cx="510" cy="22" r="30"/><circle cx="540" cy="33" r="23"/></g>
+<g filter="url(#shadow)">
+ <path d="M92 56 C62 25 28 52 50 83 C64 103 92 115 92 115 C92 115 121 103 135 83 C157 52 122 25 92 56Z" fill="#fff" opacity=".45"/>
+ <path d="M90 115 Q83 142 90 163" stroke="#168d91" stroke-width="2" fill="none"/>
+ <path d="M176 24 C148 0 123 25 145 49 C157 63 176 72 176 72 C176 72 196 63 208 49 C230 25 204 0 176 24Z" fill="#fff" opacity=".6"/>
+ <path d="M176 72 Q170 104 176 134" stroke="#168d91" stroke-width="2" fill="none"/>
+ <g transform="translate(212 66)">
+  <path d="M0 18 L102 18 L91 102 L11 102Z" fill="url(#teal)" stroke="#08747b" stroke-width="2"/>
+  <path d="M42 18 V102 M0 45 H98" stroke="#f8d77c" stroke-width="12"/>
+  <path d="M49 18 C-3 3 20 -22 47 4 C74 -22 99 3 49 18Z" fill="url(#gold)" stroke="#b17b22" stroke-width="2"/>
+  <path d="M49 18 C22 0 34 -14 49 3 C64 -14 77 0 49 18Z" fill="#fff1ad"/>
+ </g>
+ <g transform="translate(354 26)">
+  <path d="M0 57 L12 15 L38 39 L57 0 L76 39 L102 15 L114 57Z" fill="url(#gold)" stroke="#a77823" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="12" cy="14" r="6" fill="#fff0b2"/><circle cx="57" cy="0" r="7" fill="#fff0b2"/><circle cx="102" cy="14" r="6" fill="#fff0b2"/>
+  <path d="M7 63 H108 L100 79 H15Z" fill="#bd8a2d"/>
+  <path d="M22 87 Q57 75 93 87" stroke="#fff0b2" stroke-width="4" fill="none" stroke-linecap="round"/>
+ </g>
+</g>
+<g fill="#fff" opacity=".9"><circle cx="148" cy="130" r="4"/><circle cx="155" cy="143" r="2"/><circle cx="480" cy="115" r="4"/><circle cx="460" cy="137" r="3"/><circle cx="35" cy="123" r="3"/></g>
+</svg>
