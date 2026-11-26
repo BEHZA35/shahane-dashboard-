@@ -934,3 +934,80 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   filter: none !important;
   opacity: 1 !important;
 }
+
+
+/* SHAHANEH SIDEBAR — restore original deep teal palette; unify white icons */
+.shp-side {
+  background: linear-gradient(160deg,#153f3d 0%,#0d302f 58%,#102927 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: -12px 0 40px rgba(9,38,34,.08) !important;
+}
+.shp-side nav > a,
+.shp-side nav > .shp-nav-item {
+  background: rgba(255,255,255,.075) !important;
+  background-color: rgba(255,255,255,.075) !important;
+  color: #e5f0ed !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.shp-side nav > a.active,
+.shp-side nav > a.active:visited {
+  background: rgba(255,255,255,.075) !important;
+  background-color: rgba(255,255,255,.075) !important;
+  color: #e5f0ed !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+}
+.shp-side nav > a:hover,
+.shp-side nav > .shp-nav-item:hover,
+.shp-side nav > a:focus-visible,
+.shp-side nav > .shp-nav-item:focus-visible,
+.shp-side nav > a.active:hover,
+.shp-side nav > a.active:focus-visible {
+  background: #d9ae58 !important;
+  background-color: #d9ae58 !important;
+  color: #493511 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.shp-side nav > a > span,
+.shp-side nav > .shp-nav-item > span { color: #e5f0ed !important; }
+.shp-side nav > a:hover > span,
+.shp-side nav > .shp-nav-item:hover > span,
+.shp-side nav > a:focus-visible > span,
+.shp-side nav > .shp-nav-item:focus-visible > span,
+.shp-side nav > a.active:hover > span { color: #493511 !important; }
+.shp-side nav > a > i,
+.shp-side nav > .shp-nav-item > i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 22px !important;
+  width: 22px !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: grayscale(1) brightness(0) invert(1) !important;
+  opacity: 1 !important;
+}
+.shp-side nav > a:hover > i,
+.shp-side nav > .shp-nav-item:hover > i,
+.shp-side nav > a:focus-visible > i,
+.shp-side nav > .shp-nav-item:focus-visible > i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  filter: grayscale(1) brightness(0) invert(1) !important;
+}
