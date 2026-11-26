@@ -833,3 +833,26 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
 }
 .shp-side nav > a.active:hover > span,
 .shp-side nav > a.active:focus-visible > span { color: #493511 !important; }
+
+
+/* Sidebar icons only: remove the white tile/frame while keeping alignment */
+.shp-side nav > a > i,
+.shp-side nav > .shp-nav-item > i {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+.shp-side nav > a:hover > i,
+.shp-side nav > .shp-nav-item:hover > i,
+.shp-side nav > a:focus-visible > i,
+.shp-side nav > .shp-nav-item:focus-visible > i,
+.shp-side nav > a.active > i {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
