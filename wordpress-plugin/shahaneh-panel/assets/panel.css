@@ -856,3 +856,23 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   border: 0 !important;
   box-shadow: none !important;
 }
+
+
+/* Sidebar: all icons use one consistent solid white color, with no tile */
+.shp-side nav > a > i,
+.shp-side nav > .shp-nav-item > i,
+.shp-side nav > a.active > i,
+.shp-side nav > a:hover > i,
+.shp-side nav > .shp-nav-item:hover > i,
+.shp-side nav > a:focus-visible > i,
+.shp-side nav > .shp-nav-item:focus-visible > i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: grayscale(1) brightness(0) invert(1) !important;
+  opacity: 1 !important;
+}
