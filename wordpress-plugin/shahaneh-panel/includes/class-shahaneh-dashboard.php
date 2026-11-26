@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) { exit; }
 final class Shahaneh_Dashboard {
     public static function render(int $user_id): void {
         $user = get_user_by('id', $user_id);
-        echo '<section class="shp-welcome"><div class="shp-welcome-mark">✦</div><div class="shp-welcome-copy"><span class="shp-eyebrow">SHAHANEH · YOUR STORE, YOUR KINGDOM</span><h2>به پنل مدیریت فروشگاه شاهانه خوش آمدید' . ($user ? '، ' . esc_html($user->display_name) : '') . '</h2><p>موفقیت شما افتخار ماست <span class="shp-welcome-heart">♥</span></p></div><img class="shp-welcome-art" src="' . esc_url(SHAHANEH_PANEL_URL . 'assets/welcome-banner.svg') . '" alt="هدیه و تاج شاهانه"><div class="shp-welcome-orb" aria-hidden="true"></div></section>';
+        echo '<section class="shp-welcome"><div class="shp-welcome-frame"><img class="shp-welcome-art" src="https://shahanee.com/wp-content/uploads/2026/11/wide_bright_dreamy_high_quality_3d_photorealist.png" alt="تصویر خوشامدگویی شاهانه"></div><div class="shp-welcome-copy"><span class="shp-eyebrow">SHAHANEH · YOUR STORE, YOUR KINGDOM</span><h2>به پنل مدیریت شاهانه خوش آمدید' . ($user ? '، ' . esc_html($user->display_name) : '') . '</h2><p>موفقیت شما افتخار ماست <span class="shp-welcome-heart">♥</span></p></div></section>';
 
         if (!class_exists('WooCommerce') || !function_exists('wc_get_orders')) {
             echo '<section class="shp-card shp-notice"><h2>ووکامرس در دسترس نیست</h2><p>برای نمایش آمار واقعی، افزونه WooCommerce باید روی این نصب فعال باشد.</p></section>';
