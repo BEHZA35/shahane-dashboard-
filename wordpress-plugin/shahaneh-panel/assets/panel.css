@@ -1127,3 +1127,95 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   outline: 2px solid #f0d28e !important;
   outline-offset: 2px !important;
 }
+
+
+/* FINAL SIDEBAR OVERRIDE: clean white labels, uniform SVG icons, gold only on hover/selection */
+.shp-side nav > a,
+.shp-side nav > .shp-nav-item,
+.shp-side nav > a.active,
+.shp-side nav > .shp-nav-item.active {
+  display:flex !important;
+  align-items:center !important;
+  gap:13px !important;
+  min-height:46px !important;
+  padding:11px 14px !important;
+  margin:0 !important;
+  border:1px solid transparent !important;
+  border-radius:11px !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  color:#ffffff !important;
+  box-shadow:none !important;
+  transform:none !important;
+  text-decoration:none !important;
+  transition:background-color .18s ease,color .18s ease !important;
+}
+.shp-side nav > a:before,
+.shp-side nav > .shp-nav-item:before { display:none !important; content:none !important; }
+.shp-side nav > a > span,
+.shp-side nav > .shp-nav-item > span {
+  color:#ffffff !important;
+  font-weight:500 !important;
+}
+.shp-side nav > a > .shp-icon,
+.shp-side nav > .shp-nav-item > .shp-icon {
+  display:block !important;
+  flex:0 0 22px !important;
+  width:22px !important;
+  height:22px !important;
+  margin:0 !important;
+  color:#ffffff !important;
+  stroke:#ffffff !important;
+  fill:none !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  opacity:1 !important;
+}
+.shp-side nav > a:hover,
+.shp-side nav > .shp-nav-item:hover,
+.shp-side nav > a:focus-visible,
+.shp-side nav > .shp-nav-item:focus-visible {
+  background:#d9ae58 !important;
+  background-color:#d9ae58 !important;
+  color:#38280d !important;
+  border-color:transparent !important;
+  box-shadow:0 4px 13px rgba(0,0,0,.13) !important;
+}
+.shp-side nav > a:hover > span,
+.shp-side nav > .shp-nav-item:hover > span,
+.shp-side nav > a:focus-visible > span,
+.shp-side nav > .shp-nav-item:focus-visible > span {
+  color:#38280d !important;
+}
+.shp-side nav > a:hover > .shp-icon,
+.shp-side nav > .shp-nav-item:hover > .shp-icon,
+.shp-side nav > a:focus-visible > .shp-icon,
+.shp-side nav > .shp-nav-item:focus-visible > .shp-icon {
+  color:#38280d !important;
+  stroke:#38280d !important;
+}
+.shp-side nav > a.is-selected,
+.shp-side nav > .shp-nav-item.is-selected,
+.shp-side nav > a.active,
+.shp-side nav > .shp-nav-item.active {
+  background:#d9ae58 !important;
+  background-color:#d9ae58 !important;
+  color:#38280d !important;
+  border-color:transparent !important;
+  box-shadow:0 4px 13px rgba(0,0,0,.13) !important;
+}
+.shp-side nav > a.is-selected > span,
+.shp-side nav > .shp-nav-item.is-selected > span,
+.shp-side nav > a.active > span,
+.shp-side nav > .shp-nav-item.active > span {
+  color:#38280d !important;
+  font-weight:700 !important;
+}
+.shp-side nav > a.is-selected > .shp-icon,
+.shp-side nav > .shp-nav-item.is-selected > .shp-icon,
+.shp-side nav > a.active > .shp-icon,
+.shp-side nav > .shp-nav-item.active > .shp-icon {
+  color:#38280d !important;
+  stroke:#38280d !important;
+}
