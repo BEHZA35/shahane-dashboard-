@@ -221,8 +221,8 @@ final class Shahaneh_Panel {
         <html lang="fa" dir="rtl"><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><title>پنل شاهانه</title><link rel="stylesheet" href="<?php echo esc_url(includes_url('css/dashicons.min.css')); ?>"><link rel="stylesheet" href="<?php echo esc_url(SHAHANEH_PANEL_URL . 'assets/panel.css?ver=' . SHAHANEH_PANEL_VERSION); ?>"></head>
         <body class="shp-body"><div class="shp-shell">
         <aside class="shp-side"><div class="shp-brand"><span>♛</span><div><b>شاهانه</b><small>SHAHANEH PANEL</small></div></div><p>مدیریت فروشگاه</p><nav aria-label="منوی مدیریت شاهانه">
-        <a class="active" href="<?php echo esc_url(home_url('/panel/')); ?>"><i class="dashicons dashicons-dashboard" aria-hidden="true"></i><span>داشبورد</span></a>
-        <span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-products" aria-hidden="true"></i><span>محصولات</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-tag" aria-hidden="true"></i><span>قیمت دوم</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-category" aria-hidden="true"></i><span>دسته‌بندی‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-cart" aria-hidden="true"></i><span>سفارش‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-groups" aria-hidden="true"></i><span>مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-archive" aria-hidden="true"></i><span>انبار و موجودی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-tickets-alt" aria-hidden="true"></i><span>تخفیف‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-chart-bar" aria-hidden="true"></i><span>گزارش‌ها و مالی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-format-gallery" aria-hidden="true"></i><span>رسانه و تصاویر</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-email" aria-hidden="true"></i><span>پیامک و اطلاع‌رسانی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>اتوماسیون</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-awards" aria-hidden="true"></i><span>باشگاه مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-chart-line" aria-hidden="true"></i><span>سئو و رشد فروشگاه</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-star-filled" aria-hidden="true"></i><span>دستیار هوش مصنوعی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-shield" aria-hidden="true"></i><span>کاربران و دسترسی</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-bell" aria-hidden="true"></i><span>اعلان‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-lock" aria-hidden="true"></i><span>امنیت و فعالیت‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-database-export" aria-hidden="true"></i><span>پشتیبان‌گیری</span></span><span class="shp-nav-item" role="button" tabindex="0"><i class="dashicons dashicons-admin-generic" aria-hidden="true"></i><span>تنظیمات عمومی</span></span>
+        <a href="<?php echo esc_url(home_url('/panel/')); ?>"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h8v8H3z M13 3h8v5h-8z M13 10h8v11h-8z M3 13h8v8H3z"/></svg><span>داشبورد</span></a>
+        <span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 7V5a6 6 0 0 1 12 0v2 M3 7h18l-1 14H4L3 7z"/></svg><span>محصولات</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 13 13 20 3 10V3h7l10 10z M7.5 7.5h.01"/></svg><span>قیمت دوم</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h8v7H3z M13 4h8v7h-8z M3 13h8v7H3z M13 13h8v7h-8z"/></svg><span>دسته‌بندی‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6 M10 21h.01 M18 21h.01"/></svg><span>سفارش‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M20 8a3 3 0 0 0-2-2.8 M20 14a4 4 0 0 1 2 3.5V21"/></svg><span>مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h18v4H3z M5 8v12h14V8 M9 12h6"/></svg><span>انبار و موجودی</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4V7z M13 7v2 M13 13v2 M13 18v1"/></svg><span>تخفیف‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19V9 M10 19V4 M16 19v-7 M22 19H2"/></svg><span>گزارش‌ها و مالی</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h18v16H3z M7 15l3-3 3 3 2-2 3 3 M8 8h.01"/></svg><span>رسانه و تصاویر</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h18v14H3z M3 6l9 7 9-7"/></svg><span>پیامک و اطلاع‌رسانی</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.6v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1A1.7 1.7 0 0 0 8 15a1.7 1.7 0 0 0-1.5-1H6.4v-2.6h.1A1.7 1.7 0 0 0 8 10a1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.6v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.6h-.1a1.7 1.7 0 0 0-1.5 1.4z"/></svg><span>اتوماسیون</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 3h8v5a4 4 0 0 1-8 0V3z M8 5H4v2a4 4 0 0 0 4 4 M16 5h4v2a4 4 0 0 1-4 4 M12 12v5 M8 21h8 M10 17h4"/></svg><span>باشگاه مشتریان</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 3 8-9 M15 5h6v6"/></svg><span>سئو و رشد فروشگاه</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"/></svg><span>دستیار هوش مصنوعی</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z M9 12l2 2 4-4"/></svg><span>کاربران و دسترسی</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9 M10 21h4"/></svg><span>اعلان‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 10h14v11H5z M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>امنیت و فعالیت‌ها</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3c5 0 9 1.6 9 3.5S17 10 12 10 3 8.4 3 6.5 7 3 12 3z M3 6.5v11c0 2 4 3.5 9 3.5 M21 6.5v6 M3 12c0 2 4 3.5 9 3.5 M15 18h7 M19 14l4 4-4 4"/></svg><span>پشتیبان‌گیری</span></span><span class="shp-nav-item" role="button" tabindex="0"><svg class="shp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.6v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1A1.7 1.7 0 0 0 8 15a1.7 1.7 0 0 0-1.5-1H6.4v-2.6h.1A1.7 1.7 0 0 0 8 10a1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.6v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.6h-.1a1.7 1.7 0 0 0-1.5 1.4z"/></svg><span>تنظیمات عمومی</span></span>
         </nav><small class="shp-side-foot">شاهانه · نسخه توسعه</small></aside>
         <main class="shp-main"><header><div class="shp-header-user"><span class="shp-avatar">ش</span><div><small><?php echo $authenticated ? esc_html(wp_get_current_user()->user_login) : 'مدیریت فروشگاه'; ?></small><b>مدیر کل</b></div></div><div class="shp-header-title"><small>SHAHANEH · پنل مدیریت اختصاصی</small><h1><?php echo $authenticated ? 'داشبورد مدیریت شاهانه' : 'ورود امن به پنل شاهانه'; ?></h1></div><div class="shp-header-tools"><span class="shp-header-tool">♧</span><span class="shp-header-tool">☾</span><span class="shp-header-date">▦ <?php echo esc_html(wp_date('l، j F Y')); ?></span></div>
         <?php if ($authenticated): ?><form method="post"><input type="hidden" name="panel_action" value="logout"><?php wp_nonce_field('shahaneh_panel_logout'); ?><button class="shp-logout">خروج امن</button></form><?php endif; ?></header>
@@ -237,47 +237,27 @@ final class Shahaneh_Panel {
         <?php endif; ?>
         <footer>شاهانه · پنل مدیریت اختصاصی · <?php echo esc_html(wp_date('Y')); ?></footer></main></div><script>
 (function(){
-  var nav=document.querySelector('.shp-side nav');
-  if(!nav)return;
-  function setSelected(item){
-    nav.querySelectorAll('a, .shp-nav-item').forEach(function(el){
-      el.classList.remove('active','is-selected');
-      el.removeAttribute('aria-current');
-      el.style.removeProperty('background');
-      el.style.removeProperty('background-color');
-      el.style.removeProperty('color');
-      el.style.removeProperty('border-color');
-      el.style.removeProperty('box-shadow');
-    });
-    item.classList.add('active','is-selected');
-    item.setAttribute('aria-current','page');
-    item.style.setProperty('background','#d9ae58','important');
-    item.style.setProperty('background-color','#d9ae58','important');
-    item.style.setProperty('color','#38280d','important');
-    item.style.setProperty('border-color','rgba(255,255,255,.18)','important');
-    item.style.setProperty('box-shadow','0 5px 16px rgba(0,0,0,.16)','important');
-    var label=item.querySelector('span');
-    if(label){label.style.setProperty('color','#38280d','important');label.style.setProperty('font-weight','700','important');}
-    var icon=item.querySelector('i.dashicons');
-    if(icon){icon.style.setProperty('color','#38280d','important');icon.style.setProperty('-webkit-text-fill-color','#38280d','important');}
-    try{localStorage.setItem('shp_selected_menu',String(Array.prototype.indexOf.call(nav.querySelectorAll('a, .shp-nav-item'),item)));}catch(e){}
-  }
-  nav.addEventListener('click',function(e){
-    var item=e.target.closest('a, .shp-nav-item');
-    if(!item||!nav.contains(item))return;
-    if(item.classList.contains('shp-nav-item'))e.preventDefault();
-    setSelected(item);
-  },true);
-  nav.addEventListener('keydown',function(e){
-    var item=e.target.closest('.shp-nav-item');
-    if(item&&(e.key==='Enter'||e.key===' ')){e.preventDefault();setSelected(item);}
-  });
-  try{
-    var items=nav.querySelectorAll('a, .shp-nav-item');
-    var saved=parseInt(localStorage.getItem('shp_selected_menu'),10);
-    if(!isNaN(saved)&&items[saved])setSelected(items[saved]);
-    else {var current=nav.querySelector('a.active')||items[0];if(current)setSelected(current);}
-  }catch(e){}
+ var nav=document.querySelector('.shp-side nav'); if(!nav)return;
+ var items=nav.querySelectorAll('a, .shp-nav-item');
+ function select(item){
+  items.forEach(function(el){el.classList.remove('active','is-selected');el.removeAttribute('aria-current');});
+  item.classList.add('active','is-selected');item.setAttribute('aria-current','page');
+  try{localStorage.setItem('shp_selected_menu',String(Array.prototype.indexOf.call(items,item)));}catch(e){}
+ }
+ nav.addEventListener('click',function(e){
+  var item=e.target.closest('a, .shp-nav-item');if(!item||!nav.contains(item))return;
+  if(item.classList.contains('shp-nav-item'))e.preventDefault();
+  select(item);
+ },true);
+ nav.addEventListener('keydown',function(e){
+  var item=e.target.closest('.shp-nav-item');
+  if(item&&(e.key==='Enter'||e.key===' ')){e.preventDefault();select(item);}
+ });
+ try{
+  var saved=parseInt(localStorage.getItem('shp_selected_menu'),10);
+  if(!isNaN(saved)&&items[saved])select(items[saved]);
+  else {localStorage.removeItem('shp_selected_menu');}
+ }catch(e){}
 })();
 </script></body></html><?php
     }
