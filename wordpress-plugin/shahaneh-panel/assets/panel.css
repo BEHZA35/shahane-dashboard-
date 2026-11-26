@@ -798,3 +798,38 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   background: none !important;
   box-shadow: none !important;
 }
+
+
+/* Make Dashboard match every other sidebar item; gold only while hovered */
+.shp-side nav > a.active,
+.shp-side nav > a.active:visited {
+  background: rgba(255,255,255,.075) !important;
+  background-color: rgba(255,255,255,.075) !important;
+  background-image: none !important;
+  color: #e5f0ed !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.shp-side nav > a.active > span { color: #e5f0ed !important; }
+.shp-side nav > a.active > i {
+  background: #fff !important;
+  background-color: #fff !important;
+  color: #087f88 !important;
+  border: 1px solid #fff !important;
+  box-shadow: 0 3px 9px rgba(0,0,0,.12) !important;
+  filter: none !important;
+}
+.shp-side nav > a.active:hover,
+.shp-side nav > a.active:focus-visible {
+  background: #d9ae58 !important;
+  background-color: #d9ae58 !important;
+  background-image: none !important;
+  color: #493511 !important;
+  border: 1px solid transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.shp-side nav > a.active:hover > span,
+.shp-side nav > a.active:focus-visible > span { color: #493511 !important; }
