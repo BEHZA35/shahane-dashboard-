@@ -1041,3 +1041,57 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   filter: none !important;
   opacity: 1 !important;
 }
+
+
+/* Shahaneh final visual refresh: rich emerald sidebar and native WordPress icons */
+.shp-side {
+  background: linear-gradient(155deg,#17665b 0%,#104d46 52%,#0b3935 100%) !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: -14px 0 38px rgba(5,35,30,.18) !important;
+}
+.shp-side nav > a,
+.shp-side nav > .shp-nav-item,
+.shp-side nav > a.active {
+  background: rgba(255,255,255,.075) !important;
+  color: #eef8f5 !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: 12px !important;
+}
+.shp-side nav > a:hover,
+.shp-side nav > .shp-nav-item:hover,
+.shp-side nav > a:focus-visible,
+.shp-side nav > .shp-nav-item:focus-visible,
+.shp-side nav > a.active:hover {
+  background: #d9ae58 !important;
+  color: #493511 !important;
+  border-color: transparent !important;
+}
+.shp-side nav > a > i.dashicons,
+.shp-side nav > .shp-nav-item > i.dashicons {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 25px !important;
+  width: 25px !important;
+  height: 25px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: dashicons !important;
+  font-size: 21px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+.shp-side nav > a:hover > i.dashicons,
+.shp-side nav > .shp-nav-item:hover > i.dashicons,
+.shp-side nav > a:focus-visible > i.dashicons,
+.shp-side nav > .shp-nav-item:focus-visible > i.dashicons {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
