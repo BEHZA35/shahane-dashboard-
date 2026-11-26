@@ -504,3 +504,49 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   border-color:#f8e5ae !important;
 }
 .shp-side nav a.active > span{color:#493511 !important}
+
+
+/* SHAHANEH FINAL MENU HOVER — exact markup selectors */
+.shp-side nav > a:hover,
+.shp-side nav > a:focus-visible,
+.shp-side nav > .shp-nav-item:hover,
+.shp-side nav > .shp-nav-item:focus-visible {
+  background: #D9AE58 !important;
+  background-image: none !important;
+  background-color: #D9AE58 !important;
+  color: #493511 !important;
+  border: 1px solid #F5D98D !important;
+  box-shadow: 0 8px 20px rgba(166,119,35,.28), inset 0 1px 0 rgba(255,255,255,.48) !important;
+  text-shadow: none !important;
+  transform: translateY(-2px) !important;
+}
+
+/* White icons on the solid gold hover surface */
+.shp-side nav > a:hover > i,
+.shp-side nav > a:focus-visible > i,
+.shp-side nav > .shp-nav-item:hover > i,
+.shp-side nav > .shp-nav-item:focus-visible > i {
+  color: #FFFFFF !important;
+  background: transparent !important;
+  background-image: none !important;
+  border-color: rgba(255,255,255,.5) !important;
+  box-shadow: none !important;
+  filter: grayscale(1) brightness(0) invert(1) !important;
+}
+
+/* Readable label; keep the complete menu row uniformly gold */
+.shp-side nav > a:hover > span,
+.shp-side nav > a:focus-visible > span,
+.shp-side nav > .shp-nav-item:hover > span,
+.shp-side nav > .shp-nav-item:focus-visible > span {
+  color: #493511 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Avoid old pseudo-elements or inner gradients creating a second color */
+.shp-side nav > a:hover::before,
+.shp-side nav > .shp-nav-item:hover::before {
+  display: none !important;
+  content: none !important;
+}
