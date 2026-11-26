@@ -876,3 +876,61 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   filter: grayscale(1) brightness(0) invert(1) !important;
   opacity: 1 !important;
 }
+
+
+/* SHAHANEH SIDEBAR — clean, plain white, uniform appearance */
+.shp-side {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border-color: #eeeeee !important;
+  box-shadow: none !important;
+}
+.shp-side nav > a,
+.shp-side nav > .shp-nav-item,
+.shp-side nav > a.active,
+.shp-side nav > a.active:visited,
+.shp-side nav > a:hover,
+.shp-side nav > .shp-nav-item:hover,
+.shp-side nav > a:focus-visible,
+.shp-side nav > .shp-nav-item:focus-visible,
+.shp-side nav > a.active:hover,
+.shp-side nav > a.active:focus-visible {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #333333 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.shp-side nav > a > span,
+.shp-side nav > .shp-nav-item > span,
+.shp-side nav > a.active > span,
+.shp-side nav > a:hover > span,
+.shp-side nav > .shp-nav-item:hover > span,
+.shp-side nav > a:focus-visible > span,
+.shp-side nav > .shp-nav-item:focus-visible > span {
+  color: #333333 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.shp-side nav > a > i,
+.shp-side nav > .shp-nav-item > i,
+.shp-side nav > a.active > i,
+.shp-side nav > a:hover > i,
+.shp-side nav > .shp-nav-item:hover > i,
+.shp-side nav > a:focus-visible > i,
+.shp-side nav > .shp-nav-item:focus-visible > i {
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
