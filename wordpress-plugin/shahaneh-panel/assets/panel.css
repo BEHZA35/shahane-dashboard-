@@ -1095,3 +1095,35 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
 }
+
+
+/* Persistent selected menu item after click */
+.shp-side nav > a.is-selected,
+.shp-side nav > .shp-nav-item.is-selected,
+.shp-side nav > a.active,
+.shp-side nav > .shp-nav-item.active {
+  background: linear-gradient(100deg,#e6c16e 0%,#d2a449 100%) !important;
+  background-color: #d9ae58 !important;
+  color: #38280d !important;
+  border-color: rgba(255,255,255,.18) !important;
+  box-shadow: 0 5px 16px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.24) !important;
+}
+.shp-side nav > a.is-selected > span,
+.shp-side nav > .shp-nav-item.is-selected > span,
+.shp-side nav > a.active > span,
+.shp-side nav > .shp-nav-item.active > span {
+  color: #38280d !important;
+  font-weight: 700 !important;
+}
+.shp-side nav > a.is-selected > i.dashicons,
+.shp-side nav > .shp-nav-item.is-selected > i.dashicons,
+.shp-side nav > a.active > i.dashicons,
+.shp-side nav > .shp-nav-item.active > i.dashicons {
+  color: #38280d !important;
+  -webkit-text-fill-color: #38280d !important;
+}
+.shp-side nav > .shp-nav-item { cursor: pointer !important; }
+.shp-side nav > .shp-nav-item:focus-visible {
+  outline: 2px solid #f0d28e !important;
+  outline-offset: 2px !important;
+}
