@@ -1011,3 +1011,33 @@ body.shp-body{margin:0;background:radial-gradient(ellipse at 70% 0%,#e7f3ef 0,tr
   -webkit-text-fill-color: #ffffff !important;
   filter: grayscale(1) brightness(0) invert(1) !important;
 }
+
+
+/* Final sidebar icon normalization: monochrome glyphs, identical visual box */
+.shp-side nav > a > i,
+.shp-side nav > .shp-nav-item > i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 24px !important;
+  width: 24px !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: Arial, Tahoma, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
